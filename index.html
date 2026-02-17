@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BonjourDev - Roblox Stuff</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --card-bg: #ffffff;
+            --card-hover: #ffffff;
+            --shadow-color: rgba(0,0,0,0.08);
+            --shadow-hover: rgba(0,0,0,0.15);
+            --accent: #000;
+            --border-radius: 15px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            text-align: center;
+            padding: 3rem 1rem 2rem;
+            max-width: 700px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+            letter-spacing: -0.5px;
+        }
+
+        .tagline {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            font-size: 1.2rem;
+            opacity: 0.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social-pill {
+            background: var(--card-bg);
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            box-shadow: 0 2px 5px var(--shadow-color);
+            transition: transform 0.1s, box-shadow 0.1s;
+            border: 1px solid transparent;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .social-pill:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px var(--shadow-hover);
+        }
+
+        main {
+            width: 100%;
+            max-width: 1100px;
+            padding: 20px;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: 300;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.5;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 2px 10px var(--shadow-color); 
+            transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+            backface-visibility: hidden; 
+        }
+
+        .card:hover {
+            transform: scale(1.025);
+            box-shadow: 0 8px 20px var(--shadow-hover);
+            background: var(--card-hover);
+            z-index: 1;
+        }
+
+        .card:active {
+            transform: scale(0.98);
+        }
+
+        .card-img-container {
+            width: 100%;
+            height: 140px;
+            background-color: #eee;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-img {
+            transform: scale(1.05);
+        }
+
+        .badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            backdrop-filter: blur(4px);
+        }
+
+        .card-content {
+            padding: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            font-weight: 300;
+            line-height: 1.4;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 2rem;
+            font-size: 0.8rem;
+            opacity: 0.5;
+            text-align: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 id="name">BonjourDev</h1>
+        <p class="tagline" id="bio">Games, visualizations, and free assets.</p>
+
+        <div class="socials">
+            <a href="#" class="social-pill" title="Discord" style="color: #5865F2;"><i class="fa-brands fa-discord"></i></a>
+            <a href="#" class="social-pill" title="YouTube" style="color: #FF0033;"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="social-pill" title="GitHub" style="color: #000000;"><i class="fa-brands fa-github"></i></a>
+        </div>
+    </header>
+
+    <main>
+        <div class="section-title" id="section-label">My Stuff</div>
+        
+        <div class="grid">
+            
+            <a href="https://bjrdev.github.io/refined-resources/" target="_blank" class="card">
+                <div class="card-img-container">
+                    <img src="https://i.imgur.com/n5A7u2v.png" class="card-img" alt="Refined Resources. Logo">
+                </div>
+                <div class="card-content">
+                    <div class="card-title" id="p1-title">Refined Resources.</div>
+                    <div class="card-desc" id="p1-desc">The #1 free platform for Roblox developers.</div>
+                </div>
+            </a>
+
+            <a href="https://bjrdev.github.io/tailwind-colors/" target="_blank" class="card">
+                <div class="card-img-container">
+                    <img src="https://i.imgur.com/WUyf4gs.png" class="card-img" alt="Tailwind Logo">
+                </div>
+                <div class="card-content">
+                    <div class="card-title" id="p2-title">Tailwind Colors</div>
+                    <div class="card-desc" id="p2-desc">All examples from the default Tailwind CSS palette.</div>
+                </div>
+            </a>
+
+        </div>
+    </main>
+
+    <footer>
+        <span id="footer-text">© 2026 BonjourDev - Made with passion.</span>
+    </footer>
+
+</body>
+</html>
